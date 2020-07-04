@@ -31,7 +31,7 @@ class AutoView(viewsets.ModelViewSet):
 class InsertAuto(FormView):
     template_name = 'forms/auto.html'
     form_class = AutoForm
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('autos:index')
 
     def form_valid(self, form):
         form.save()
@@ -40,7 +40,7 @@ class InsertAuto(FormView):
 class InsertModelo(FormView):
     template_name = 'forms/modelo.html'
     form_class = ModeloForm
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('autos:index')
 
     def form_valid(self, form):
         form.save()
@@ -49,7 +49,7 @@ class InsertModelo(FormView):
 class InsertMarca(FormView):
     template_name = 'forms/marca.html'
     form_class = MarcaForm
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('autos:index')
 
     def form_valid(self, form):
         form.save()
@@ -58,7 +58,7 @@ class InsertMarca(FormView):
 class InsertTipo(FormView):
     template_name = 'forms/tipo.html'
     form_class = TipoForm
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('autos:index')
 
     def form_valid(self, form):
         form.save()
