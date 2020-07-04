@@ -22,6 +22,6 @@ from authentication.views import Login
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', Login.as_view(), name='login'),
-    path('', include('autos.urls')),
+    path('', include(('autos.urls','autos'))),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -46,7 +46,7 @@
                         
                         
                             <span class="pro-user-name ml-1">
-                                {{user.username}} - <a href="{%url 'farma:logout' %}">Cerrar Sesión</a>
+                                {{user.username}} - <a href="{%url 'autos:logout' %}">Cerrar Sesión</a>
                             </span>
                        
 
@@ -69,15 +69,11 @@
                                 <i class="fe-airplay"></i>Opciones <div class="arrow-down"></div></a>
                             <ul class="submenu">
                                 <li>
-                                    <a href="{% url 'farma:list.product'%}">Listar Productos</a>
+                                    <a href="{% url 'autos:insert.modelo'%}">Registrar Modelo</a>
                                 </li>
 
                                 <li>
-                                    <a href="{% url 'farma:list.invoices'%}">Listar Facturas</a>
-                                </li>
-
-                                <li>
-                                    <a href="{% url 'farma:create_invoice'%}">Crear Factura</a>
+                                    <a href="{% url 'autos:insert.auto'%}">Registrar Auto</a>
                                 </li>
                                
                             </ul>

@@ -1,6 +1,6 @@
 from django.urls import path, include
 from rest_framework import routers
-from .views import TipoView, MarcaView, ModeloView, AutoView, login, InsertAuto, InsertModelo
+from .views import TipoView, MarcaView, ModeloView, AutoView, login, InsertAuto, InsertModelo, home
 from django.contrib.auth.views import LogoutView
 
 
@@ -15,5 +15,6 @@ urlpatterns = [
     path('login', login, name="login"),
     path("logout/", LogoutView.as_view(), name='logout'),
     path("insert_auto/", InsertAuto.as_view(), name="insert.auto"),
-    path("insert_modelo/", InsertModelo.as_view(), name="insert.modelo")
+    path("insert_modelo/", InsertModelo.as_view(), name="insert.modelo"),
+    path("", home, name="index")
 ]

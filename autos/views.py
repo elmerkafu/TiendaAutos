@@ -31,7 +31,7 @@ class AutoView(viewsets.ModelViewSet):
 class InsertAuto(FormView):
     template_name = 'forms/auto.html'
     form_class = AutoForm
-    success_url = reverse_lazy('admin:index')
+    success_url = reverse_lazy('index')
 
     def form_valid(self, form):
         form.save()
@@ -40,7 +40,7 @@ class InsertAuto(FormView):
 class InsertModelo(FormView):
     template_name = 'forms/modelo.html'
     form_class = ModeloForm
-    success_url = reverse_lazy('admin:index')
+    success_url = reverse_lazy('index')
 
     def form_valid(self, form):
         form.save()
@@ -50,4 +50,4 @@ def login(request):
     return render(request, "forms/signIn.html", {})
 
 def home(request):
-    return render(request, "base.html", {})
+    return render(request, "base-login.html", {})
