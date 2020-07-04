@@ -1,6 +1,21 @@
+{% extends 'base-login.html' %}
 
-<form method="post">
-{% csrf_token %}
-    {{ form.as_p }}
+
+{% load static %}
+
+{% block title%} Inicie Sesion {% endblock %}
+{% block content %}
+<br>
+<br>
+<br>
+<form method="post" class="form-control">
+        {% csrf_token %}
+        <div class="card p-5 m-5">
+            {{ form.as_p }}
+        </div>
+        
+
     <input type="submit" value="Send message">
 </form>
+
+{% endblock %}
