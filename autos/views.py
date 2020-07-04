@@ -1,8 +1,15 @@
-<<<<<<< HEAD
 from rest_framework import viewsets
 from .serializers import TipoSerializer, MarcaSerializer, ModeloSerializer, AutoSerializer
 from .models import Tipo, Marca, Modelo, Auto
 from rest_framework import filters
+
+from django.shortcuts import render
+from .forms import AutoForm, ModeloForm
+from django.views.generic.edit import FormView
+from django.urls import reverse_lazy, reverse
+
+
+
 
 class TipoView(viewsets.ModelViewSet):
     queryset = Tipo.objects.all()
@@ -24,14 +31,6 @@ class AutoView(viewsets.ModelViewSet):
     filter_backends = (filters.SearchFilter,filters.OrderingFilter,)
     search_fields = ('modelo__modelo','modelo__marca__marca')
     ordering_fields = ['anno', 'precio']
-=======
-from django.shortcuts import render
-from .forms import AutoForm, ModeloForm
-from django.views.generic.edit import FormView
-from django.urls import reverse_lazy, reverse
-
-# Create your views here.
-
 
 class InsertAuto(FormView):
     template_name = 'forms/auto.html'
@@ -56,4 +55,3 @@ def login(request):
 
 def home(request):
     return render(request, "base.html", {})
->>>>>>> 3970c581f68cd81ffe5a3f5defb34dc336480211
