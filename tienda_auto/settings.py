@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'authentication',
     'rest_framework',
     'django_filters',
     'autos'
@@ -59,7 +60,7 @@ ROOT_URLCONF = 'tienda_auto.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -139,3 +140,5 @@ REST_FRAMEWORK = {
      'DEFAULT_FILTER_BACKENDS': (
         'django_filters.rest_framework.DjangoFilterBackend',)
 }
+LOGIN_URL = '/login/'
+LOGOUT_REDIRECT_URL = '/login/'
