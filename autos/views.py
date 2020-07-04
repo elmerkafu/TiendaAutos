@@ -3,7 +3,7 @@ from .serializers import TipoSerializer, MarcaSerializer, ModeloSerializer, Auto
 from .models import Tipo, Marca, Modelo, Auto
 from rest_framework import filters
 from django.shortcuts import render
-from .forms import AutoForm, ModeloForm
+from .forms import AutoForm, ModeloForm, TipoForm, MarcaForm
 from django.views.generic.edit import FormView
 from django.urls import reverse_lazy, reverse
 
@@ -24,8 +24,8 @@ class ModeloView(viewsets.ModelViewSet):
 class AutoView(viewsets.ModelViewSet):
     queryset = Auto.objects.all()
     serializer_class = AutoSerializer
-    filter_backends = (filters.SearchFilter,filters.OrderingFilter,)
-    search_fields = ('modelo__modelo','modelo__marca__marca')
+    filter_backends = (filters.SearchFilter, filters.OrderingFilter,)
+    search_fields = ('modelo__modelo', 'modelo__marca__marca')
     ordering_fields = ['anno', 'precio']
 
 class InsertAuto(FormView):
@@ -45,6 +45,24 @@ class InsertModelo(FormView):
     def form_valid(self, form):
         form.save()
         return super(InsertModelo, self).form_valid(form)
+
+class InsertMarca(FormView):
+    template_name = 'forms/marca.html'
+    form_class = MarcaForm
+    success_url = reverse_lazy('index')
+
+    def form_valid(self, form):
+        form.save()
+        return super(InsertMarca, self).form_valid(form)
+
+class InsertTipo(FormView):
+    template_name = 'forms/tipo.html'
+    form_class = TipoForm
+    success_url = reverse_lazy('index')
+
+    def form_valid(self, form):
+        form.save()
+        return super(InsertTipo, self).form_valid(form)
 
 def login(request):
     return render(request, "forms/signIn.html", {})
