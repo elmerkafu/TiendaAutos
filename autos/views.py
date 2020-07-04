@@ -2,14 +2,10 @@ from rest_framework import viewsets
 from .serializers import TipoSerializer, MarcaSerializer, ModeloSerializer, AutoSerializer
 from .models import Tipo, Marca, Modelo, Auto
 from rest_framework import filters
-
 from django.shortcuts import render
 from .forms import AutoForm, ModeloForm
 from django.views.generic.edit import FormView
 from django.urls import reverse_lazy, reverse
-
-
-
 
 class TipoView(viewsets.ModelViewSet):
     queryset = Tipo.objects.all()
