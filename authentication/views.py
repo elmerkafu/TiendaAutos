@@ -12,7 +12,7 @@ from .forms import FormLogin
 class Login(FormView):
     template_name = 'forms/signIn.html'
     form_class = FormLogin
-    success_url = reverse_lazy('autos:insert.auto')
+    success_url = reverse_lazy('autos:index')
 
     @method_decorator(csrf_protect)
     @method_decorator(never_cache)
